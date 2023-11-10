@@ -25,6 +25,8 @@ def main():
             elif escolha == "4":
                 crud.excluir_dados(dados)
             elif escolha == "5":
+                crud.excluir_dados(dados)
+            elif escolha == "6":
                 print("Saindo do programa.")
                 break
             else:

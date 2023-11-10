@@ -1,3 +1,9 @@
+import oracledb
+import csv
+
+connection = oracledb.connect(user = 'RM550620',password = '130400',dsn = 'oracle.fiap.com.br/orcl') 
+cursor = connection.cursor()
+
 def visualizar_dados(dados):
     if not dados:
         print("Nenhum dado disponível.")
