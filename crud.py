@@ -5,11 +5,11 @@ connection = oracledb.connect(user = 'RM550620',password = '130400',dsn = 'oracl
 cursor = connection.cursor()
 
 def visualizar_dados(dados):
-    if not dados:
-        print("Nenhum dado disponível.")
-    else:
-        for i, registro in enumerate(dados, 1):
-            print(f"Registro {i}: {registro}")
+    tabelaS = input("Qual tabela deseja selecionar: ")
+    cursor.execute(f"SELECT * FROM {tabelaS}")
+    for row in cursor:
+        print(row)
+
 
 
 def inserir_dados(dados):
