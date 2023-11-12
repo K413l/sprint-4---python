@@ -2,7 +2,7 @@ import oracledb
 import csv
 from datetime import datetime
 
-connection = oracledb.connect(user = 'RM550620',password = '130400',dsn = 'oracle.fiap.com.br/orcl') 
+connection = oracledb.connect(user = 'RM551007',password = '030803',dsn = 'oracle.fiap.com.br/orcl') 
 
 cursor = connection.cursor()
 table =  input("Qual tabela deseja selecionar: ")
