@@ -4,7 +4,25 @@ import csv
 connection = oracledb.connect(user = 'RM551007',password = '030803',dsn = 'oracle.fiap.com.br/orcl') 
 cursor = connection.cursor()
 
-def visualizar_dados(dados):
+def listar_colunas():
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT column_name FROM user_tab_columns WHERE table_name = '{tabelaS.upper()}'")
+
+    print(f"Colunas da tabela {tabelaS}:")
+    for coluna in cursor:
+        print(coluna[0])
+
+def listar_tabelas():
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT table_name FROM user_tables")
+
+    print("Tabelas no banco de dados:")
+    for tabela in cursor:
+        print(tabela[0])
+
+def visualizar_dados():
     tabelaS = input("Qual tabela deseja selecionar: ")
     cursor.execute(f"SELECT * FROM {tabelaS}")
     for row in cursor:
@@ -12,53 +30,24 @@ def visualizar_dados(dados):
 
 
 
-def inserir_dados(dados):
-    try:
-        nome = str(input("Digite o nome: "))
-        idade = int(input("Digite a idade: "))
-        cpf = input("Digite a cpf: ")
-        rg = input("Digite a rg: ")
-        sexo = input("Qual o seu sexo")
-
-        novo_registro = {"Nome": nome, "Idade": idade, "CPF": cpf, "RG": rg, "Sexo": sexo}
-        dados.append(novo_registro)
-        print("Dados inseridos com sucesso.")
-    except ValueError:
-        print("Erro: Idade deve ser um número inteiro válido.")
+def inserir_dados():
+    tabelaS = input("Qual tabela deseja inserir um novo registro: ")
+    listar_colunas()
+    cursor.execute(f"INSERT INTO {tabelaS} VALUES (:1, :2, :3, :4)", (id, nome, cargo, salario))
+    connection.commit()
 
 
-def atualizar_dados(dados):
-    visualizar_dados(dados)
-    try:
-        indice = int(input("Digite o número do registro que deseja atualizar: ")) - 1
-        if 0 <= indice < len(dados):
-            nome = input("Digite o novo nome: ")
-            idade = int(input("Digite a idade: "))
-            cpf = input("Digite a cpf: ")
-            rg = input("Digite a rg: ")
-            sexo = input("Qual o seu sexo")
-
-            dados[indice]["Nome"] = nome
-            dados[indice]["idade"] = idade
-            dados[indice]["rg"] = rg
-            dados[indice]["cpf"] = cpf
-            dados[indice]["Idade"] = sexo
-
-            print("Dados atualizados com sucesso.")
-        else:
-            print("Índice inválido.")
-    except ValueError:
-        print("Erro: Idade deve ser um número inteiro válido.")
+def atualizar_dados():
+    tabelaS = input("Qual tabela deseja atualizar um registro: ")
+    listar_colunas()
+    id = int(input("Digite o ID do registro que você quer atualizar: "))
+    coluna = input("Qual coluna deseja atualizar o valor")
+    valor = input("Digite o novo valor")
+    cursor.execute(f"UPDATE {tabelaS} SET {coluna} = :1 WHERE id = :2", (valor, id))
+    connection.commit()
 
 
 def excluir_dados(dados):
-    visualizar_dados(dados)
-    try:
-        indice = int(input("Digite o número do registro que deseja excluir: ")) - 1
-        if 0 <= indice < len(dados):
-            del dados[indice]
-            print("Registro excluído com sucesso.")
-        else:
-            print("Índice inválido.")
-    except ValueError:
-        print("Erro: Índice deve ser um número inteiro válido.")
+    tabelaS = input("Qual tabela deseja deletar um registro: ")
+    cursor.execute("DELETE FROM funcionarios WHERE id = :1", (id,))
+    connection.commit()
