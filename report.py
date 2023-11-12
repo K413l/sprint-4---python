@@ -22,5 +22,3 @@ def criar():
         for row in cursor:
             csv_writer.writerow(row)
 
-cursor.close()
-connection.close()
