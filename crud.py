@@ -13,6 +13,7 @@ def listar_colunas(tabelaS):
     for coluna in cursor:
         print(coluna[0])
 
+
 def listar_tabelas():
     cursor = connection.cursor()
 
@@ -55,7 +56,7 @@ def inserir_dados():
 
 def atualizar_dados():
     tabelaS = input("Qual tabela deseja atualizar um registro: ")
-    listar_colunas()
+    listar_colunas(tabelaS)
     id = int(input("Digite o ID do registro que você quer atualizar: "))
     coluna = input("Qual coluna deseja atualizar o valor")
     valor = input("Digite o novo valor")
