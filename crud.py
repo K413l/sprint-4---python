@@ -1,20 +1,19 @@
 import oracledb
 import csv
 
-connection = oracledb.connect(user = 'RM551007',password = '030803',dsn = 'oracle.fiap.com.br/orcl') 
-#connection = oracledb.connect(user = 'RM550620',password = '130400',dsn = 'oracle.fiap.com.br/orcl') 
+connection = oracledb.connect(user = 'RM551007',password = '030803',dsn = 'oracle.fiap.com.br/orcl')  
 cursor = connection.cursor()
 
 def listar_colunas(tabelaS):
     cursor = connection.cursor()
     cursor.execute(f"SELECT column_name FROM user_tab_columns WHERE table_name = '{tabelaS.upper()}'")
 
-    colunas = [coluna[0] for coluna in cursor.fetchall()]  # Corrigido aqui
-    print(f"Colunas da tabela {tabelaS}: {', '.join(colunas)}")  # Ajustado aqui
+    colunas = [coluna[0] for coluna in cursor.fetchall()]  
+    print(f"Colunas da tabela {tabelaS}: {', '.join(colunas)}") 
 
     cursor.close()
 
-    return colunas  # Adicionado o retorno das colunas
+    return colunas 
 
 
 
@@ -38,20 +37,15 @@ def visualizar_dados():
 def inserir_dados():
     tabelaS = input("Qual tabela deseja inserir um novo registro: ")
     
-    # Listar colunas da tabela escolhida
-    #listar_colunas(connection, tabelaS)
     listar_colunas(tabelaS)
 
-    # Obter os valores a serem inseridos dinamicamente
     valores = []
     for coluna in listar_colunas(tabelaS):
         valor = input(f"Insira um valor para a coluna {coluna}: ")
         valores.append(valor)
 
-    # Criar a string de placeholders para a inserção
     placeholders = ":" + ", :".join(str(i + 1) for i in range(len(valores)))
 
-    # Executar a inserção com os valores dinâmicos
     query = f"INSERT INTO {tabelaS} VALUES ({placeholders})"
     cursor = connection.cursor()
     cursor.execute(query, tuple(valores))

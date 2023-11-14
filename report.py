@@ -10,9 +10,7 @@ def criar():
     query = f"SELECT * FROM {table}"
     cursor.execute(query)
 
-    #date = datetime.now().strftime("%d/%m/%Y_%H:%M:%S")
     date = datetime.now().strftime("%d%m%Y")
-    #nomereport = str(f'report_{table}_{date}.csv')
     nomereport = str(f'report_{table}_{date}.csv')
 
     with open(str(nomereport), 'w', newline='') as csvfile:
