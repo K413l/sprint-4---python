@@ -27,3 +27,5 @@ Início do Programa:
 
 Antes de entrar no menu principal, o programa pergunta ao usuário se ele deseja iniciar o programa. Se o usuário disser "N", o programa agradece e encerra. Isso oferece flexibilidade ao usuário para decidir se deseja ou não prosseguir.
 Essencialmente, o código cria uma interface para que o usuário possa interagir com um banco de dados Oracle, realizando operações comuns de CRUD e gerando relatórios em CSV. Ele é estruturado de forma a lidar com possíveis erros e a fechar adequadamente as conexões com o banco de dados.
+
+obs: Professor tivemos alguns problemas com as tabelas e pode ser que quando vc faça o select as informações não sejas as mesmas dos meus, mas isso pq deletaram as tabelas e criaram dnv
