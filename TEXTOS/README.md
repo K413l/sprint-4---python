@@ -1,4 +1,4 @@
-# sprint-4 - python
+# GLOBAL SOLUTION - python
 
 Nome dos integrantes e RM:
 Razyel Ferrari rm551875-git: irazyel
@@ -27,5 +27,3 @@ Início do Programa:
 
 Antes de entrar no menu principal, o programa pergunta ao usuário se ele deseja iniciar o programa. Se o usuário disser "N", o programa agradece e encerra. Isso oferece flexibilidade ao usuário para decidir se deseja ou não prosseguir.
 Essencialmente, o código cria uma interface para que o usuário possa interagir com um banco de dados Oracle, realizando operações comuns de CRUD e gerando relatórios em CSV. Ele é estruturado de forma a lidar com possíveis erros e a fechar adequadamente as conexões com o banco de dados.
-
-OBS: não compreendi muito bem se os relatorios deveriam ser extraidos diretamente pela aplicação ou por mim no caso eu os extrai T_SAK_ESTADO filtra os estados de codigo 1 e T_SAK_CIDADE filtra as cidades de codigo de estado 1, de qualquer forma criei uma função que extrai reports direto do banco de dados em csv e os renomeia 
