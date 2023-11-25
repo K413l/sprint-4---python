@@ -1,11 +1,13 @@
 # GLOBAL SOLUTION - python
 
+CRUD BANCO DE DADOS PYTHON
+
 Nome dos integrantes e RM:
-Razyel Ferrari rm551875-git: irazyel
-Rayzor Anael rm551832-git: rozyar
-Derick Araújo rm551007-git: dericki
-Kalel Schlichting rm550620-git: K413l
-Phablo santos rm550687-git:PhabloFiap
+Razyel Ferrari rm551875-git: irazyel 1TDSR
+Rayzor Anael rm551832-git: rozyar 1TDSR
+Derick Araújo rm551007-git: dericki 1TDSR
+Kalel Schlichting rm550620-git: K413l 1TDSR
+Phablo santos rm550687-git:PhabloFiap 1TDSR
 
 
 Conexão com o Banco de Dados:

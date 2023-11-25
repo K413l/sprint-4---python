@@ -48,7 +48,7 @@ def inserir_dados():
 
     query = f"INSERT INTO {tabelaS} VALUES ({placeholders})"
     cursor = connection.cursor()
-    cursor.execute(query, tuple(valores))
+    cursor.execute(query, valores)
     connection.commit()
 
 
