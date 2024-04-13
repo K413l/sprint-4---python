@@ -3,7 +3,7 @@ import report as rep
 import oracledb
 import csv
 
-connection = oracledb.connect(user = 'RM551007',password = '030803',dsn = 'oracle.fiap.com.br/orcl') 
+connection = oracledb.connect(user = 'RM550620',password = '130400',dsn = 'oracle.fiap.com.br/orcl') 
 cursor = connection.cursor()
 
 def main():
